@@ -129,7 +129,120 @@ header {
     SECTION - SaidasJS
 ========================== 
 */
-#saidasJS{
+#saidasJS {
     text-align: center;
-    color: var(--c_txt2)
+    color: var(--c_txt2);
+
+    > p {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        color: var(--c_txt);
+        margin-bottom: 30px;
+    }
+}
+
+/* Tabela com os vinhos cadastrados */
+.tabela-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--c_bg2);
+    border-radius: 10px;
+}
+
+.tabela-vinhos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+
+    th {
+        background-color: var(--c_wine);
+        color: var(--c_txt);
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 14px 16px;
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 14px 16px;
+        border-top: 1px solid var(--c_bg2);
+    }
+
+    tbody tr {
+        transition: background-color 0.2s;
+        &:nth-child(even) {
+            background-color: rgba(58, 45, 49, 0.35);
+        }
+        &:hover {
+            background-color: var(--c_bg2);
+        }
+    }
+
+    .col-num {
+        color: var(--c_wine);
+        font-weight: 600;
+    }
+
+    .col-nome {
+        color: var(--c_txt);
+        font-weight: 500;
+    }
+}
+
+/* Etiquetas de classificação e estoque */
+.tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+.tag-jovem       { color: #8fbf7a; border-color: #8fbf7a; }
+.tag-amadurecido { color: #d9a441; border-color: #d9a441; }
+.tag-antigo      { color: #c76b84; border-color: #c76b84; }
+.tag-ok          { color: var(--c_txt2); border-color: var(--c_txt2); }
+.tag-baixo {
+    color: var(--c_txt);
+    background-color: var(--c_wine);
+    border-color: var(--c_wine);
+}
+
+/* Cards do resumo final */
+.resumo-cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.resumo-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 24px 16px;
+    background-color: var(--c_bg2);
+    border-top: 3px solid var(--c_wine);
+    border-radius: 10px;
+}
+
+.resumo-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--c_txt);
+}
+
+.resumo-label {
+    font-size: 14px;
+    color: var(--c_txt2);
+}
+
+@media (max-width: 600px) {
+    .resumo-cards {
+        flex-direction: column;
+    }
 }
