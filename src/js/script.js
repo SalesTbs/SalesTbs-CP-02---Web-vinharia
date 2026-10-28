@@ -1,10 +1,3 @@
-var nome = prompt("Qual é o seu nome?");
-alert(`Olá, ${nome}! Seja bem-vindo à Vinheria Agnello!`);
-console.log(`Nome do usuário: ${nome}`);
-
-alert("por favor tenha as informações do vinho que deseja cadastrar em mãos, para que o cadastro seja realizado com sucesso!");
-
-
 // Valida texto: não deixa vazio
 function validarTexto(pergunta) {
     var resposta = prompt(pergunta);
@@ -66,44 +59,56 @@ function mostrarDados(nomeV, tipoV, safraV, quantV, classificacao, baixo) {
 
 // ===== CADASTRO =====
 
-var contador = 0;
-var contadorEstoqueBaixo = 0;
-var nomeMaisAntigo = "";
-var safraMaisAntiga = 0;
-var continuar = "s";
+// Roda todo o cadastro quando o usuário clica no botão "Iniciar Cadastro"
+function iniciarCadastro() {
+    var nome = prompt("Qual é o seu nome?");
+    alert(`Olá, ${nome}! Seja bem-vindo à Vinheria Agnello!`);
+    console.log(`Nome do usuário: ${nome}`);
 
-while (continuar === "s") {
-    var nomeVinho = validarTexto("Qual é o nome do vinho que você deseja cadastrar?");
-    var tipoVinho = validarTipo("Qual é o tipo do vinho que você deseja cadastrar? (Tinto, Branco, Rosé)");
-    var safraVinho = validarNumero("Qual é a safra do vinho que você deseja cadastrar?");
-    var quantidadeVinho = validarNumero("Qual é a quantidade do vinho que você deseja cadastrar?");
+    alert("por favor tenha as informações do vinho que deseja cadastrar em mãos, para que o cadastro seja realizado com sucesso!");
 
-    var classificacao = classificarVinho(safraVinho);
-    var baixo = estoqueBaixo(quantidadeVinho);
+    var contador = 0;
+    var contadorEstoqueBaixo = 0;
+    var nomeMaisAntigo = "";
+    var safraMaisAntiga = 0;
+    var continuar = "s";
 
-    contador++;
+    while (continuar === "s") {
+        var nomeVinho = validarTexto("Qual é o nome do vinho que você deseja cadastrar?");
+        var tipoVinho = validarTipo("Qual é o tipo do vinho que você deseja cadastrar? (Tinto, Branco, Rosé)");
+        var safraVinho = validarNumero("Qual é a safra do vinho que você deseja cadastrar?");
+        var quantidadeVinho = validarNumero("Qual é a quantidade do vinho que você deseja cadastrar?");
 
-    if (baixo) {
-        contadorEstoqueBaixo++;
+        var classificacao = classificarVinho(safraVinho);
+        var baixo = estoqueBaixo(quantidadeVinho);
+
+        contador++;
+
+        if (baixo) {
+            contadorEstoqueBaixo++;
+        }
+
+        // Compara a safra manualmente: o primeiro já é o mais antigo até aparecer um menor
+        if (contador === 1 || safraVinho < safraMaisAntiga) {
+            safraMaisAntiga = safraVinho;
+            nomeMaisAntigo = nomeVinho;
+        }
+
+        mostrarDados(nomeVinho, tipoVinho, safraVinho, quantidadeVinho, classificacao, baixo);
+
+        continuar = validarTexto("Deseja cadastrar outro vinho? (s/n)").toLowerCase();
     }
 
-    // Compara a safra manualmente: o primeiro já é o mais antigo até aparecer um menor
-    if (contador === 1 || safraVinho < safraMaisAntiga) {
-        safraMaisAntiga = safraVinho;
-        nomeMaisAntigo = nomeVinho;
-    }
+    // ===== RESUMO FINAL =====
 
-    mostrarDados(nomeVinho, tipoVinho, safraVinho, quantidadeVinho, classificacao, baixo);
-
-    continuar = validarTexto("Deseja cadastrar outro vinho? (s/n)");
+    alert(`Resumo final:\nCadastros: ${contador}\nEstoque baixo: ${contadorEstoqueBaixo}\nVinho mais antigo: ${nomeMaisAntigo} (${safraMaisAntiga})`);
+    console.log(`Total de cadastros: ${contador}`);
+    console.log(`Vinhos com estoque baixo: ${contadorEstoqueBaixo}`);
+    console.log(`Vinho com a safra mais antiga: ${nomeMaisAntigo} (${safraMaisAntiga})`);
 }
 
-// ===== RESUMO FINAL =====
-
-alert(`Resumo final:\nCadastros: ${contador}\nEstoque baixo: ${contadorEstoqueBaixo}\nVinho mais antigo: ${nomeMaisAntigo} (${safraMaisAntiga})`);
-console.log(`Total de cadastros: ${contador}`);
-console.log(`Vinhos com estoque baixo: ${contadorEstoqueBaixo}`);
-console.log(`Vinho com a safra mais antiga: ${nomeMaisAntigo} (${safraMaisAntiga})`);
+var botaoIniciar = document.getElementById("B_Start");
+botaoIniciar.addEventListener("click", iniciarCadastro);
 
 // ===== PÁGINA (mostra o último vinho cadastrado) =====
 
