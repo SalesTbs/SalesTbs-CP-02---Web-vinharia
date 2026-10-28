@@ -51,7 +51,6 @@ function classificarVinho(safra) {
         return "Antigo";
     }
 }
-
 // Mostra os dados no console e avisa por alert
 function mostrarDados(nomeV, tipoV, safraV, quantV, classificacao, baixo) {
     console.log(`Nome do vinho: ${nomeV}`);
@@ -65,21 +64,62 @@ function mostrarDados(nomeV, tipoV, safraV, quantV, classificacao, baixo) {
     alert("Cadastro do vinho realizado! Veja os detalhes no console");
 }
 
-alert("Cadastro do vinho realizado! Veja os detalhes no console");
+// ===== CADASTRO =====
+
+var contador = 0;
+var contadorEstoqueBaixo = 0;
+var nomeMaisAntigo = "";
+var safraMaisAntiga = 0;
+var continuar = "s";
+
+while (continuar === "s") {
+    var nomeVinho = validarTexto("Qual é o nome do vinho que você deseja cadastrar?");
+    var tipoVinho = validarTipo("Qual é o tipo do vinho que você deseja cadastrar? (Tinto, Branco, Rosé)");
+    var safraVinho = validarNumero("Qual é a safra do vinho que você deseja cadastrar?");
+    var quantidadeVinho = validarNumero("Qual é a quantidade do vinho que você deseja cadastrar?");
+
+    var classificacao = classificarVinho(safraVinho);
+    var baixo = estoqueBaixo(quantidadeVinho);
+
+    contador++;
+
+    if (baixo) {
+        contadorEstoqueBaixo++;
+    }
+
+    // Compara a safra manualmente: o primeiro já é o mais antigo até aparecer um menor
+    if (contador === 1 || safraVinho < safraMaisAntiga) {
+        safraMaisAntiga = safraVinho;
+        nomeMaisAntigo = nomeVinho;
+    }
+
+    mostrarDados(nomeVinho, tipoVinho, safraVinho, quantidadeVinho, classificacao, baixo);
+
+    continuar = validarTexto("Deseja cadastrar outro vinho? (s/n)");
+}
+
+// ===== RESUMO FINAL =====
+
+alert(`Resumo final:\nCadastros: ${contador}\nEstoque baixo: ${contadorEstoqueBaixo}\nVinho mais antigo: ${nomeMaisAntigo} (${safraMaisAntiga})`);
+console.log(`Total de cadastros: ${contador}`);
+console.log(`Vinhos com estoque baixo: ${contadorEstoqueBaixo}`);
+console.log(`Vinho com a safra mais antiga: ${nomeMaisAntigo} (${safraMaisAntiga})`);
+
+// ===== PÁGINA (mostra o último vinho cadastrado) =====
 
 var nomeVinhoTitulo = document.getElementById("nome-vinho");
-nomeVinhoTitulo.textContent = `O nome do vinho é: ${nomeVinho}`
+nomeVinhoTitulo.textContent = `O nome do vinho é: ${nomeVinho}`;
 
 var tipoVinhoTitulo = document.getElementById("tipo-vinho");
-tipoVinhoTitulo.textContent = `O tipo do vinho é: ${tipoVinho}`
+tipoVinhoTitulo.textContent = `O tipo do vinho é: ${tipoVinho}`;
 
 var safraVinhoTitulo = document.getElementById("safra-vinho");
-safraVinhoTitulo.textContent = `O safra do vinho é: ${safraVinho}`
+safraVinhoTitulo.textContent = `A safra do vinho é: ${safraVinho}`;
 
 var quantidadeVinhoTitulo = document.getElementById("quantidade-vinho");
-quantidadeVinhoTitulo.textContent = `O safra do vinho é: ${quantidadeVinho}`
+quantidadeVinhoTitulo.textContent = `A quantidade do vinho é: ${quantidadeVinho}`;
 
-console.log(nomeVinhoTitulo)
-console.log(tipoVinhoTitulo)
-console.log(safraVinhoTitulo)
-console.log(quantidadeVinhoTitulo)
+console.log(nomeVinhoTitulo);
+console.log(tipoVinhoTitulo);
+console.log(safraVinhoTitulo);
+console.log(quantidadeVinhoTitulo);
