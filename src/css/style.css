@@ -1,50 +1,135 @@
-body {
-    background-color: #f5eaea;
-    font-family: Arial, sans-serif;
+:root {
+    --c_bg: #111111;
+    --c_bg2: #3a2d31;
+    --c_txt: rgb(243, 242, 242);
+    --c_txt2: rgb(187, 186, 186);;
+    --c_wine: #9c0828;
+}
+
+/* 
+========================== 
+          BASE 
+========================== 
+*/
+html {
+    scroll-behavior: smooth;
+}
+* {
     margin: 0;
-    padding: 40px;
-    color: #2b0b0b;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--c_bg);
+    color: var(--c_txt2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+}
+/* Scroll-Bar Custom */
+::-webkit-scrollbar {
+    width: 0px;             
 }
 
-h1 {
-    color: #742121;
-    font-size: 4em;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
 }
 
-h2 {
-    color: #3f0f0f;
-    font-size: 2.5em;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-ul {
-    color: #742121;
-    font-size: 1.8em;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1.1em;
-    line-height: 1.6;
+/* 
+=================================== 
+       Classes Reutilizáveis
+=================================== 
+*/
+.container {
+    width: 100%;
     max-width: 900px;
-    margin: 10px auto;
+    margin: 0 auto;
+    padding: 0 30px;
+}  
+.section-margin {
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
-h3 {
-    color: #301d1d;
-    font-size: 1.8em;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    margin-top: 25px;
-    margin-bottom: 10px;
+/* 
+========================== 
+      HEADER
+========================== 
+*/
+header {
+    margin-top: 15px;
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--c_wine);
+    .img_logo {
+        width: auto;
+        height: 70px;
+        position: relative;
+        bottom: 6px;
+    }
+    .img_title {
+        width: auto;
+        height: 80px;
+    }
+}
+
+/* 
+========================== 
+    SECTION - WELCOME
+========================== 
+*/
+#welcome {
+    margin-top: 60px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    h2 {
+        color: var(--c_txt2);
+        font-family: 'Inter', sans-serif;
+        font-size: 22px;
+    }
+    h1 {
+        font-weight: 300;
+        font-size: 58px;
+        color: var(--c_txt);
+        text-align: center;
+        span {
+            color: var(--c_wine);
+            font-weight: 600;
+            font-style: italic;
+        }
+    }
+}
+
+/* 
+========================== 
+    SECTION - Botoes
+========================== 
+*/
+#botoes{
+    text-align: center;
+}
+#B_Start {
+    display: inline-block;
+    background-color: var(--c_wine);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    &:hover {
+        background-color: var(--c_txt2);
+        color: var(--c_bg);
+        cursor: pointer;
+    }
+}
+
+/* 
+========================== 
+    SECTION - SaidasJS
+========================== 
+*/
+#saidasJS{
+    text-align: center;
+    color: var(--c_txt2)
 }
