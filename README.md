@@ -1,5 +1,13 @@
 # Vinheria Agnello — Sistema de Avaliação de Estoque e Tendência de Vinhos
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![FIAP](https://img.shields.io/badge/FIAP-Engenharia%20de%20Software-ED145B?style=for-the-badge)
+
+[![Acessar Projeto](https://img.shields.io/badge/Acessar%20Projeto-9C0828?style=for-the-badge&logo=githubpages&logoColor=white)](https://salestbs.github.io/SalesTbs-CP-02---Web-vinharia/)
+[![Repositório](https://img.shields.io/badge/Reposit%C3%B3rio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SalesTbs/SalesTbs-CP-02---Web-vinharia)
+
 Projeto desenvolvido para o **Checkpoint 02** da disciplina de Web Development (FIAP).
 
 O sistema permite cadastrar vinhos em sequência pelo navegador, avalia o estoque de cada um, classifica o vinho pela idade da safra e, ao final, apresenta um resumo do que foi catalogado.
