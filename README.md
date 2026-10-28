@@ -1,97 +1,41 @@
-# ✅ Checkpoint 02 – Sistema de Avaliação de Estoque e Tendência de Vinhos
+# Vinheria Agnello — Sistema de Avaliação de Estoque e Tendência de Vinhos
 
-**Projeto: _vinheria-agnello-checkpoint02_**
+Projeto desenvolvido para o **Checkpoint 02** da disciplina de Web Development (FIAP).
 
----
+O sistema permite cadastrar vinhos em sequência pelo navegador, avalia o estoque de cada um, classifica o vinho pela idade da safra e, ao final, apresenta um resumo do que foi catalogado.
 
-### 👥 Trabalho em Grupo
-
-- Este checkpoint deve ser feito **em grupo de até 5 pessoas**
-- Cada integrante deve realizar **ao menos dois novos commits**, com mensagens claras
-- Código **organizado, indentado e comentado**
-- Reaproveite a ideia do CP01, mas partindo de um **novo repositório**
+**Acesse a página publicada:** https://salestbs.github.io/SalesTbs-CP-02---Web-vinharia/
 
 ---
 
-### 📤 Entrega
+## O que foi implementado
 
-- Criar um novo repositório no GitHub com o nome:  
-  **`vinheria-agnello-checkpoint02`**
-- Ativar o **GitHub Pages**
-- Enviar via **Microsoft Teams**:
-  - Link do repositório no GitHub
-  - Link da página publicada no GitHub Pages
+- **Cadastro em sequência:** ao clicar em *Iniciar Cadastro*, o usuário informa nome, tipo, safra e quantidade de cada vinho via `prompt()`, e ao final de cada cadastro escolhe se deseja cadastrar outro.
+- **Validação de entradas:** campos de texto não aceitam valor vazio, o tipo só aceita *Tinto*, *Branco* ou *Rosé*, e safra e quantidade só aceitam números maiores que zero.
+- **Verificação de estoque:** vinhos com menos de 5 unidades são sinalizados como estoque baixo.
+- **Classificação por idade da safra:**
 
----
+  | Idade        | Classificação |
+  |--------------|---------------|
+  | até 5 anos   | Jovem         |
+  | 6 a 15 anos  | Amadurecido   |
+  | mais de 15   | Antigo        |
 
-### 📄 README.md – Explicação do Projeto
+- **Exibição dos dados:** cada vinho cadastrado é registrado no console, com aviso por `alert()`.
+- **Resumo final:** total de cadastros, quantidade de vinhos com estoque baixo e o vinho de safra mais antiga, exibidos por `alert()`, no console e em uma tabela na própria página.
 
-No arquivo `README.md`, incluir:
-- Nome do projeto  
-- Descrição do que foi implementado no Checkpoint 02  
-- Nome completo dos integrantes do grupo  
-- Link do GitHub Pages  
-- (Opcional) Imagem ou GIF de demonstração
+## Conceitos de JavaScript aplicados
 
----
+- **Funções reutilizáveis:** `validarTexto`, `validarTipo`, `validarNumero`, `estoqueBaixo`, `classificarVinho`, `mostrarDados`, `iniciarCadastro` e `exibirResumoNaPagina`.
+- **Escopo de variáveis:** os dados do cadastro são declarados dentro de `iniciarCadastro()` e usados apenas localmente.
+- **Laços de repetição:** `while` para repetir os cadastros e para repetir perguntas até a entrada ser válida.
+- **Sem arrays e sem objetos:** as informações são manipuladas por variáveis simples, e a comparação da safra mais antiga é feita manualmente a cada iteração.
 
-### 🧠 Objetivo da Atividade
-
-Aprofundar os fundamentos do JavaScript com:
-- **Funções e reutilização de código**
-- **Escopo de variáveis**
-- **Laços de repetição e iteração (`for`, `while`, etc.)**
-
----
-
-### 📋 Requisitos do Sistema
-
-1. O sistema deve funcionar **via `prompt()` e `alert()`** como no CP01.
-2. **Reaproveite a ideia de cadastro de vinhos**, mas agora:
-   - Permita o **cadastro de vários vinhos em sequência**, perguntando ao final se deseja cadastrar outro.
-3. Crie **funções reutilizáveis**:
-   - Para validar entradas
-   - Para verificar se o estoque está baixo (menos de 5)
-   - Para classificar o vinho (jovem, amadurecido, antigo)
-   - Para mostrar os dados no console com aviso por `alert()`
-4. **Evite repetir código**: funções são obrigatórias.
-5. **Escopo deve ser respeitado**:
-   - Variáveis declaradas dentro das funções devem ser usadas localmente
-6. Ao final, exiba:
-   - Quantos cadastros foram feitos
-   - Quantos vinhos têm estoque baixo
-   - O vinho com a safra mais antiga (comparando manualmente dentro das iterações)
-
-⚠️ **Não é permitido usar arrays nem objetos!**  
-Todas as informações devem ser armazenadas e manipuladas por variáveis únicas (ex: `nome1`, `nome2`, `quant1`, etc.)
-
----
-
-### 💡 Dica
-
-- Use um **contador para acompanhar quantos cadastros foram feitos**
-- Utilize variáveis com numeração no nome para diferenciar cada vinho cadastrado (sim, na unha!)
-
----
-
-### 💻 Página `index.html`
-
-- Deve manter:
-  - Título com o nome da vinícola
-  - Breve descrição do projeto
-  - Estilização com CSS (em `style.css`)
-- O código JS deve rodar **após o carregamento da página** (script no final do `body`)
-
----
-
-### 📁 Estrutura do Projeto
+## Estrutura do projeto
 
 ```
-vinheria-agnello-checkpoint02/
-│
 ├── index.html
 ├── README.md
-│
 └── src/
     ├── css/
     │   └── style.css
@@ -100,3 +44,25 @@ vinheria-agnello-checkpoint02/
     └── assets/
         └── imgs/
 ```
+
+## Como executar
+
+1. Acesse o link do GitHub Pages acima, ou clone o repositório e abra o `index.html` no navegador.
+2. Clique em **Iniciar Cadastro** e responda às perguntas.
+3. Abra o console do navegador (F12) para acompanhar os registros detalhados.
+
+## Tecnologias
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Integrantes
+
+| Nome                                  | RM       |
+|---------------------------------------|----------|
+| Guilherme Andrade Dos Santos Trevisan | RM576676 |
+| João Victor Matos de Almeida          | RM574928 |
+| David Manoel Barros Pereira           | RM576915 |
+| Lucas dos Santos Gomes                | RM576912 |
+| Thales Bernardino Seixas              | RM574617 |
