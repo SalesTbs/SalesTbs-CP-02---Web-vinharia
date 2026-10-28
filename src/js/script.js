@@ -99,13 +99,13 @@ function iniciarCadastro() {
 
         // Adiciona o vinho como uma nova linha da tabela da página
         linhasTabela += `<tr>
-            <td>${contador}</td>
-            <td>${nomeVinho}</td>
+            <td class="col-num">${contador}</td>
+            <td class="col-nome">${nomeVinho}</td>
             <td>${tipoVinho}</td>
             <td>${safraVinho}</td>
             <td>${quantidadeVinho}</td>
-            <td>${classificacao}</td>
-            <td>${baixo ? "Baixo" : "OK"}</td>
+            <td><span class="tag tag-${classificacao.toLowerCase()}">${classificacao}</span></td>
+            <td><span class="tag ${baixo ? "tag-baixo" : "tag-ok"}">${baixo ? "Baixo" : "OK"}</span></td>
         </tr>`;
 
         continuar = validarTexto("Deseja cadastrar outro vinho? (s/n)").toLowerCase();
@@ -128,21 +128,39 @@ function exibirResumoNaPagina(linhas, total, totalBaixo, nomeAntigo, safraAntiga
     var areaSaida = document.querySelector("#saidasJS div");
 
     areaSaida.innerHTML = `
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Tipo</th>
-                <th>Safra</th>
-                <th>Quantidade</th>
-                <th>Classificação</th>
-                <th>Estoque</th>
-            </tr>
-            ${linhas}
-        </table>
-        <p>Total de cadastros: ${total}</p>
-        <p>Vinhos com estoque baixo: ${totalBaixo}</p>
-        <p>Vinho com a safra mais antiga: ${nomeAntigo} (${safraAntiga})</p>
+        <div class="tabela-wrapper">
+            <table class="tabela-vinhos">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Safra</th>
+                        <th>Quantidade</th>
+                        <th>Classificação</th>
+                        <th>Estoque</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${linhas}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="resumo-cards">
+            <div class="resumo-card">
+                <span class="resumo-valor">${total}</span>
+                <span class="resumo-label">Cadastros realizados</span>
+            </div>
+            <div class="resumo-card">
+                <span class="resumo-valor">${totalBaixo}</span>
+                <span class="resumo-label">Com estoque baixo</span>
+            </div>
+            <div class="resumo-card">
+                <span class="resumo-valor">${safraAntiga}</span>
+                <span class="resumo-label">Safra mais antiga: ${nomeAntigo}</span>
+            </div>
+        </div>
     `;
 }
 
