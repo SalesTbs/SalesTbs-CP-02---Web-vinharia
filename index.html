@@ -4,30 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkpoint</title>
+    <link rel="icon" type="image/x-icon" href="./src/images/agnello_icon.png">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Vinharia Agnello</title>
 </head>
-<link rel="stylesheet" href="src/css/style.css">
 
 <body>
-    <h1>Vinharia Agnello</h1>
+    <header>
+        <img src="./src/images/agnello_icon.png" alt="Logo da Vinharia Agnello" class="img_logo">
+        <img src="./src/images/agnello_title.png" alt="Titulo da Vinharia Agnello" class="img_title">
+    </header>
 
-    <h2>Site com sistema de cadastro basico e análise de vinhos artesanais da Vinheira Agnello e com conceitos de JS
-        aprendidos em aula</h2>
+    <section id="welcome" class="container section-margin">
+        <h1>Registros <span>Vinharia Agnello</span></h1>
+        <h2>Seja bem-vindo ao sistema de controle de vinhos, é um prazer tê-lo em nossa equipe!</h2>
+    </section>
 
+    <section id="botoes" class="container section-margin">
+        <div class="buttons-container">
+            <a id="B_Start">
+                <p>Iniciar Cadastro</p>
+            </a>
+        </div>
+    </section>
 
+    <!-- Seção para exibição de saídas 
+     PROGRAMAR O JS COLOCAR AS SAIDAS NESSA SEÇÃO
+     ( pode fazer cru que eu boto uma tabelinha style depois =D ) -->
+    <section id="saidasJS" class="container section-margin">
+        <p>Resumo dos vinhos catalogados por você nessa seção:</p>
+        <!-- DIV PARA TABELA DE SAIDAS JS -->
+        <div>
 
-    <h3>Informações cadastro</h3>
-    <ul>
-        <li id="nome-vinho"></li>
-        <li id="tipo-vinho"></li>
-        <li id="safra-vinho"></li>
-        <li id="quantidade-vinho"></li>
-    </ul>
-
-
-
-
-    <script src="src/js/script.js"></script>
+        </div>
+    </section>
 </body>
-
 </html>
